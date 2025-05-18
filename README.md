@@ -1,0 +1,4 @@
+# Experiment README
+## 1.2 Understanding how it works
+![Alt text](heyhey.png)
+Pesan hey hey muncul terlebih dahulu karena future di Rust bersifat lazy. Yang dimaksud dengan lazy berarti dia tidak langsung dijalankan saat dibuat, tetapi hanya dimasukkan ke dalam task queue. Fungsi spawner.spawn() hanya memasukkan asynchronous task yaitu future ke dalam queue yang nanti akan dijalankan oleh executor. Namun, eksekusi task tersebut baru dijalankan saat executor.run() dipanggil, yang akan mulai polling task-task yang ada di dalam queue. Sementara itu println!("Henry Aditya Kosasi's Computer: hey hey!"); adalah code biasa yang bersifat synchronous, sehingga bisa langsung diexecute. Kalau tadi println hey hey ditaruh dibawah executor.run(), baru hey hey akan diprint di bawahnya howdy dan done.
