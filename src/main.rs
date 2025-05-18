@@ -80,7 +80,19 @@ fn main() {
         println!("Henry Aditya Kosasi's Computer: done!");
     });
 
+    spawner.spawn(async {
+        println!("Henry Aditya Kosasi's Computer: howdy2!");
+        TimerFuture::new(Duration::new(2, 0)).await;
+        println!("Henry Aditya Kosasi's Computer: done2!");
+    });
+
+    spawner.spawn(async {
+        println!("Henry Aditya Kosasi's Computer: howdy3!");
+        TimerFuture::new(Duration::new(2, 0)).await;
+        println!("Henry Aditya Kosasi's Computer: done3!");
+    });
+
     println!("Henry Aditya Kosasi's Computer: hey hey!");
-    drop(spawner);
+    // drop(spawner);
     executor.run();
 }
